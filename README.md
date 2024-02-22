@@ -1,8 +1,28 @@
-# React + Vite
+# Weather App (React)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This weather app is built using React for the frontend, seamlessly integrates the OpenWeatherMap API and GeoDB API.
 
-Currently, two official plugins are available:
+Users can effortlessly access real-time weather updates and detailed forecasts for any location worldwide.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Featuring intuitive location autocomplete, responsive design, this application offers a streamlined and immersive weather experience for users on any device.
+
+## Usage
+
+Create .env in you root and paste the following:
+
+```bash
+VITE_RAPID_API_KEY = // add your GeoDB Cities API_KEY
+VITE_WEATHER_API_KEY = // add your OpenWeatherMap API_KEY
+```
+
+## Install dependencies
+
+```bash
+npm install
+```
+
+## Run development server
+
+```bash
+npm run dev
+```
