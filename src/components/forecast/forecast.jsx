@@ -28,7 +28,7 @@ const Forecast = ({ data }) => {
     const forecastByDay = [];
 
     data.forEach((forecast) => {
-      const [date, time] = forecast.dt_txt.split(" ");
+      const time = forecast.dt_txt.split(" ")[1];
 
       if (time === "09:00:00") {
         forecastByDay.push(forecast);
@@ -38,7 +38,7 @@ const Forecast = ({ data }) => {
     return forecastByDay;
   };
 
-  const dailyForecast = groupForecastByDay(data.list);
+  const dailyForecast = groupForecastByDay(data);
 
   return (
     <>

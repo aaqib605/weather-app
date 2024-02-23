@@ -6,8 +6,12 @@ import { WEATHER_API_URL, WEATHER_API_KEY } from "./api";
 import "./App.css";
 
 function App() {
-  const [currentWeather, setCurrentWeather] = useState(null);
-  const [forecast, setForecast] = useState(null);
+  const [currentWeather, setCurrentWeather] = useState(
+    JSON.parse(localStorage.getItem("currentWeather")) || null
+  );
+  const [forecast, setForecast] = useState(
+    JSON.parse(localStorage.getItem("forecast")) || null
+  );
 
   const handleOnSearchChange = (searchData) => {
     const [lat, lon] = searchData.value.split(" ");
@@ -25,8 +29,18 @@ function App() {
         const weatherResponse = await response[0].json();
         const forcastResponse = await response[1].json();
 
+        localStorage.setItem(
+          "currentWeather",
+          JSON.stringify({ city: searchData.label, ...weatherResponse })
+        );
+
+        localStorage.setItem(
+          "forecast",
+          JSON.stringify(forcastResponse["list"])
+        );
+
         setCurrentWeather({ city: searchData.label, ...weatherResponse });
-        setForecast({ city: searchData.label, ...forcastResponse });
+        setForecast(forcastResponse["list"]);
       })
       .catch((err) => console.log(err));
   };
