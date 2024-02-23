@@ -43,9 +43,9 @@ const Forecast = ({ data }) => {
   return (
     <>
       <label className="title">Daily Forecast</label>
-      <Accordion allowZeroExpanded>
+      <Accordion preExpanded="0">
         {dailyForecast.map((item, idx) => (
-          <AccordionItem key={idx}>
+          <AccordionItem key={idx} uuid={idx}>
             <AccordionItemHeading>
               <AccordionItemButton>
                 <div className="daily-item">
